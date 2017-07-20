@@ -1,0 +1,19 @@
+{
+  "name": "bookshelf",
+  "version": "1.0.0",
+  "description": "Track and Recommend books and movies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohitjm/BookShelf.git"
+  },
+  "author": "Rohit Mathew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rohitjm/BookShelf/issues"
+  },
+  "homepage": "https://github.com/rohitjm/BookShelf#readme"
+}

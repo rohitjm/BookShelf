@@ -9,6 +9,6 @@ module.exports.connect = (uri) => {
 		process.exit(1);  
 	});  
 
-		// load models  
-		require('./user');
+	// load models  
+	require('./user');
 };

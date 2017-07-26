@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+const config = require('./config');
 
 const app = express();
 // tell the app to look for static files in these directories

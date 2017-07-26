@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Auth from '../modules/Auth';
 import LoginForm from '../components/LoginForm.jsx';
 
 
@@ -9,6 +10,14 @@ class LoginPage extends React.Component {
    */
   constructor(props) {
     super(props);
+
+    const storedMessage = localStorage.getItem('successMessage');
+    let successMessage = '';
+
+    if (storedMessage) {
+      successMessage = storedMessage;
+      localStorage.removeItem('successMessage');
+    }
 
     // set the initial component state
     this.state = {
@@ -52,7 +61,11 @@ class LoginPage extends React.Component {
           errors: {}
         });
 
-        console.log('The form is valid');
+        // save the token
+        Auth.authenticateUser(xhr.response.token);
+
+        // change the current URL to /
+        this.context.router.replace('/');
       } else {
         // failure
 
@@ -92,11 +105,16 @@ class LoginPage extends React.Component {
         onSubmit={this.processForm}
         onChange={this.changeUser}
         errors={this.state.errors}
+        successMessage={this.state.successMessage}
         user={this.state.user}
       />
     );
   }
 
 }
+
+LoginPage.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 export default LoginPage;

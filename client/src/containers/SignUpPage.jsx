@@ -83,6 +83,21 @@ class SignUpPage extends React.Component {
     xhr.send(formData);
   }
 
+    /**
+   * Change the user object.
+   *
+   * @param {object} event - the JavaScript event object
+   */
+  changeUser(event) {
+    const field = event.target.name;
+    const user = this.state.user;
+    user[field] = event.target.value;
+
+    this.setState({
+      user
+    });
+  }
+
   /**
    * Render the component.
    */
@@ -98,5 +113,10 @@ class SignUpPage extends React.Component {
   }
 
 }
+
+SignUpPage.contextTypes = {
+  router: PropTypes.object.isRequired
+};
+
 
 export default SignUpPage;
